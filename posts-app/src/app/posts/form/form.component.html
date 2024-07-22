@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between align-items-center">
+    <input id="typeahead-basic" type="text" class="form-control me-2" placeholder="nombre" [(ngModel)]="postName" (ngModelChange)="validateInputs()"/>
+    <input id="typeahead-basic-desc" type="text" class="form-control me-2" placeholder="descripcion" [(ngModel)]="postDescription" (ngModelChange)="validateInputs()"/>
+    <button type="button" class="btn btn-outline-primary" (click)="onAddPost()" [disabled]="isButtonDisabled$ | async">
+        Agregar
+    </button>
+</div>
+
+<h1 *ngIf="!isFormValid" class="text-danger fs-6">Debe ingresar información en ambos campos</h1>

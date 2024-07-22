@@ -1,0 +1,23 @@
+<p *ngIf="(allPosts$ | async)?.length === 0">No existen posts.</p>
+<table *ngIf="(allPosts$ | async)?.length !== 0" class="table table-striped">
+    <thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Descripción</th>
+			<th scope="col">Acciones</th>
+		</tr>
+	</thead>
+    <tbody>
+        <tr *ngFor="let post of allPosts$ | async">
+            <td>{{post.id}}</td>
+            <td>{{post.name}}</td>
+            <td>{{post.description}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-danger me-2" (click)="onDeletePost(post)">
+                    Eliminar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
